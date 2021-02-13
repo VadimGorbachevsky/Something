@@ -24,88 +24,88 @@ namespace Tennis.Library.Tests
         public void CreatePlayerScore()
         {
             Player player = new Player("Name");
-            Assert.IsTrue(player.Score() == 0);
+            Assert.IsTrue(player.Score(0) == 0);
         }
 
         [Test]
         public void UpPlayerScoreOne()
         {
             Player player = new Player("Name");
-            player.UpScore(1);
-            Assert.IsTrue(player.Score() == 1);
+            player.UpScore(0,1);
+            Assert.IsTrue(player.Score(0) == 1);
         }
         [Test]
         public void UpPlayerScoreMany()
         {
             Player player = new Player("Name");
-            player.UpScore(12);
-            Assert.IsTrue(player.Score() == 12);
+            player.UpScore(0,12);
+            Assert.IsTrue(player.Score(0) == 12);
         }
 
         [Test]
         public void UpPlayerScoreDaun()
         {
             Player player = new Player("Name");
-            player.UpScore(12);
-            player.UpScore(-1);
-            Assert.IsTrue(player.Score() == 12);
+            player.UpScore(0,12);
+            player.UpScore(0,-1);
+            Assert.IsTrue(player.Score(0) == 12);
         }
         [Test]
         public void UpPlayerScoreZero()
         {
             Player player = new Player("Name");
-            player.UpScore(12);
-            player.UpScore(0);
-            Assert.IsTrue(player.Score() == 12);
+            player.UpScore(0,12);
+            player.UpScore(0,0);
+            Assert.IsTrue(player.Score(0) == 12);
         }
         [Test]
         public void DawnPlayerScoreOne()
         {
             Player player = new Player("Name");
-            player.UpScore(2);
-            player.DownScore(1);
-            Assert.IsTrue(player.Score() == 1);
+            player.UpScore(0,2);
+            player.DownScore(0,1);
+            Assert.IsTrue(player.Score(0) == 1);
         }
         [Test]
         public void DawnPlayerScoreMany()
         {
             Player player = new Player("Name");
-            player.UpScore(5);
-            player.DownScore(2);
-            Assert.IsTrue(player.Score() == 3);
+            player.UpScore(0,5);
+            player.DownScore(0,2);
+            Assert.IsTrue(player.Score(0) == 3);
         }
         [Test]
         public void DawnPlayerScoreZero()
         {
             Player player = new Player("Name");
-            player.UpScore(5);
-            player.DownScore(0);
-            Assert.IsTrue(player.Score() == 5);
+            player.UpScore(0,5);
+            player.DownScore(0,0);
+            Assert.IsTrue(player.Score(0) == 5);
         }
         [Test]
         public void DawnPlayerScoreToZero()
         {
             Player player = new Player("Name");
-            player.UpScore(5);
-            player.DownScore(5);
-            Assert.IsTrue(player.Score() == 0);
+            player.UpScore(0,5);
+            player.DownScore(0,5);
+            Assert.IsTrue(player.Score(0) == 0);
         }
         [Test]
         public void DawnPlayerScoreToZeroOverflow()
         {
             Player player = new Player("Name");
-            player.UpScore(5);
-            player.DownScore(7);
-            Assert.IsTrue(player.Score() == 0);
+            player.UpScore(0,5);
+            player.DownScore(0,7);
+            Assert.IsTrue(player.Score(0) == 0);
         }
 
         [Test]
         public void DownPlayerScoreUp()
         {
             Player player = new Player("Name");
-            player.UpScore(12);
-            player.DownScore(-1);
-            Assert.IsTrue(player.Score() == 12);
+            player.UpScore(0,12);
+            player.DownScore(0,-1);
+            Assert.IsTrue(player.Score(0) == 12);
         }
 
         //************
