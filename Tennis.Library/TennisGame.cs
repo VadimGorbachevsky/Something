@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace Tennis.Library
 {
-    public class Class1
+    public class Player
     {
+
+    }
+    public class TennisGame
+    {
+
     }
 }
