@@ -9,10 +9,11 @@ namespace Tennis.Library
     public class Player
     {
         private string name;
-        private int score, score1, score3;
+        private int[] score = new int[2];
         public Player(string name_arg)
         {
             name = name_arg;
+            score = new int[] { 0, 0, 0};
         }
 
         public string Name()
@@ -20,28 +21,31 @@ namespace Tennis.Library
             return name;
         }
         
-        public int Score()
+        public int Score(int ind)
         {
-            return score;
+            if ((ind < 0) || (ind > 2)) { return 0; }
+            return score[ind];
         }
 
-        public void UpScore(int modifier)
+        public void UpScore(int ind, int modifier)
         {
+            if ((ind < 0) || (ind > 2)) { return; }
             if (modifier < 0) { return; }
-            score += modifier;
+            score[ind] += modifier;
         }
 
-        public void DownScore(int modifier)
+        public void DownScore(int ind, int modifier)
         {
+            if ((ind < 0) || (ind > 2)) { return; }
             if (modifier < 0) { return; }
 
-            int temp_result = score - modifier;
+            int temp_result = score[ind] - modifier;
             if (temp_result < 0) 
             {
-                score = 0;
+                score[ind] = 0;
                 return;
             }
-            score = temp_result;
+            score[ind] = temp_result;
         }
     }
     public class TennisGame
