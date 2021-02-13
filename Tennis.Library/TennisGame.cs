@@ -97,5 +97,9 @@ namespace Tennis.Library
                 ball = player_number; 
             }
         }
+        public void ClearAdvantage()
+        {
+            advantage = "Nothing";            
+        }
     }
 }

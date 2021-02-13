@@ -438,11 +438,20 @@ namespace Tennis.Library.Tests
             game.ChangeSides();
             Assert.IsTrue( (game.LeftSide() == game.Player_2()) && (game.RightSide() == game.Player_1()) ) ;            
         }
+        [Test]
         public void ChangeBall()
         {
             TennisGame game = new TennisGame("Name_1", "Name_2");
             game.ChangeBall(2);
             Assert.IsTrue(game.Ball() == 2);
+        }
+        [Test]
+        public void ClearAdvantage()
+        {
+            TennisGame game = new TennisGame("Name_1", "Name_2");
+            game.SetAdvantage(2);
+            game.ClearAdvantage();
+            Assert.IsTrue(game.Advantage() == "Nothing");
         }
 
     }
