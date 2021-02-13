@@ -10,6 +10,10 @@ namespace Tennis.Library.Tests
     [TestFixture]
     public class TennisTests
     {
+        //************
+        //PLAYER TESTS
+        //************
+
         [Test]
         public void CreatePlayerName()
         {
@@ -26,7 +30,6 @@ namespace Tennis.Library.Tests
         [Test]
         public void UpPlayerScoreOne()
         {
-            //mb use by one point, and game logic (10-15 score in game class)
             Player player = new Player("Name");
             player.UpScore(1);
             Assert.IsTrue(player.Score() == 1);
@@ -47,6 +50,7 @@ namespace Tennis.Library.Tests
             player.UpScore(-1);
             Assert.IsTrue(player.Score() == 12);
         }
+        [Test]
         public void UpPlayerScoreZero()
         {
             Player player = new Player("Name");
@@ -54,43 +58,112 @@ namespace Tennis.Library.Tests
             player.UpScore(0);
             Assert.IsTrue(player.Score() == 12);
         }
-
-        //Convert to Game-logic
         [Test]
-        public void PlayerScoreСeiling()
-        {
-
-            Player player = new Player("Name");
-            player.UpScore();
-            player.UpScore();
-            player.UpScore();
-            player.UpScore();
-            Assert.IsTrue(player.Score() == 40);
-        }
-
-        //Convert to Game-logic too
-        [Test]
-        public void PlayerAdvantageOn()
+        public void DawnPlayerScoreOne()
         {
             Player player = new Player("Name");
-            player.UpScore();
-            player.UpScore();
-            player.UpScore();
-            Assert.IsTrue(player.Score() == 40);
-            player.UpScore();
-            Assert.IsTrue(player.Score() == 40);
+            player.UpScore(2);
+            player.DawnScore(1);
+            Assert.IsTrue(player.Score() == 1);
+        }
+        [Test]
+        public void DawnPlayerScoreMany()
+        {
+            Player player = new Player("Name");
+            player.UpScore(5);
+            player.DawnScore(2);
+            Assert.IsTrue(player.Score() == 3);
+        }
+        [Test]
+        public void DawnPlayerScoreZero()
+        {
+            Player player = new Player("Name");
+            player.UpScore(5);
+            player.DawnScore(0);
+            Assert.IsTrue(player.Score() == 5);
+        }
+        [Test]
+        public void DawnPlayerScoreToZero()
+        {
+            Player player = new Player("Name");
+            player.UpScore(5);
+            player.DawnScore(5);
+            Assert.IsTrue(player.Score() == 0);
+        }
+        [Test]
+        public void DawnPlayerScoreToZeroOverflow()
+        {
+            Player player = new Player("Name");
+            player.UpScore(5);
+            player.DawnScore(7);
+            Assert.IsTrue(player.Score() == 0);
         }
 
         [Test]
-        public void PlayerScoreСeiling()
+        public void DownPlayerScoreUp()
+        {
+            Player player = new Player("Name");
+            player.UpScore(12);
+            player.DownScore(-1);
+            Assert.IsTrue(player.Score() == 12);
+        }
+
+        //************
+        //GAME-LOGIC TESTS
+        //************
+        [Test]
+        public void PlayersCorrectly()
+        {
+            TennisGame game = new TennisGame("Name_1", "Name_2");
+            Assert.IsTrue(game.Player_1().Name() == "Name_1");
+            Assert.IsTrue(game.Player_2().Name() == "Name_2");
+        }
+        public void PlayersDifferent()
+        {
+            TennisGame game = new TennisGame("Eman", "Eman");
+            Assert.IsTrue(game.Player_1().Name() == "Eman_1");
+            Assert.IsTrue(game.Player_2().Name() == "Eman_2");
+        }
+        [Test]
+        public void BallOnFirst()
         {
             TennisGame game = new TennisGame();
-            //In progress
-            //game.PlayerFirst()
-            //game.PlayerSecond.Score()
-            //game.SideLaft()
-            //game.sideRight()
-            //Assert.IsTrue(player.Score() == 40);
+            Assert.IsTrue(game.Ball() == game.Player_1());
+        }
+
+        [Test]
+        public void StartAdvantage()
+        {
+            TennisGame game = new TennisGame();
+            Assert.IsTrue(game.Advantage() == "Nothng");
+            //We use player name or nothing to avoid creation third player
+        }
+        [Test]
+        public void SetAdvantage()
+        {
+            TennisGame game = new TennisGame();
+            game.SetAdvantage(1);
+            Assert.IsTrue(game.Advantage() == game.Player_1().Name());
+        }
+
+        [Test]
+        public void StartLeftSide()
+        {
+            TennisGame game = new TennisGame();
+            Assert.IsTrue(game.LeftSide() == game.Player_1());            
+        }
+        [Test]
+        public void StartRightSide()
+        {
+            TennisGame game = new TennisGame();
+            Assert.IsTrue(game.RightSide() == game.Player_2());            
+        }
+        [Test]
+        public void ChangeSides()
+        {
+            TennisGame game = new TennisGame();
+            game.ChangeSides(1);
+            Assert.IsTrue( (game.LeftSide() == game.Player_2()) && (game.RightSide() == game.Player_1()) ) ;            
         }
 
 
