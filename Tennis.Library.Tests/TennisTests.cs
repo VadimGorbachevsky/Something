@@ -400,21 +400,21 @@ namespace Tennis.Library.Tests
         [Test]
         public void BallOnFirst()
         {
-            TennisGame game = new TennisGame();
-            Assert.IsTrue(game.Ball() == game.Player_1());
+            TennisGame game = new TennisGame("Name_1", "Name_2");
+            Assert.IsTrue(game.Ball() == 1);
         }
 
         [Test]
         public void StartAdvantage()
         {
-            TennisGame game = new TennisGame();
+            TennisGame game = new TennisGame("Name_1", "Name_2");
             Assert.IsTrue(game.Advantage() == "Nothng");
             //We use player name or nothing to avoid creation third player
         }
         [Test]
         public void SetAdvantage()
         {
-            TennisGame game = new TennisGame();
+            TennisGame game = new TennisGame("Name_1", "Name_2");
             game.SetAdvantage(1);
             Assert.IsTrue(game.Advantage() == game.Player_1().Name());
         }
@@ -422,21 +422,27 @@ namespace Tennis.Library.Tests
         [Test]
         public void StartLeftSide()
         {
-            TennisGame game = new TennisGame();
+            TennisGame game = new TennisGame("Name_1", "Name_2");
             Assert.IsTrue(game.LeftSide() == game.Player_1());            
         }
         [Test]
         public void StartRightSide()
         {
-            TennisGame game = new TennisGame();
+            TennisGame game = new TennisGame("Name_1", "Name_2");
             Assert.IsTrue(game.RightSide() == game.Player_2());            
         }
         [Test]
         public void ChangeSides()
         {
-            TennisGame game = new TennisGame();
-            game.ChangeSides(1);
+            TennisGame game = new TennisGame("Name_1", "Name_2");
+            game.ChangeSides();
             Assert.IsTrue( (game.LeftSide() == game.Player_2()) && (game.RightSide() == game.Player_1()) ) ;            
+        }
+        public void ChangeBall()
+        {
+            TennisGame game = new TennisGame("Name_1", "Name_2");
+            game.ChangeBall(2);
+            Assert.IsTrue(game.Ball() == 2);
         }
 
     }
