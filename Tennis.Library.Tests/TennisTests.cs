@@ -383,7 +383,7 @@ namespace Tennis.Library.Tests
         //************
         //GAME-LOGIC TESTS
         //************
-        /*
+        
         [Test]
         public void PlayersCorrectly()
         {
@@ -438,7 +438,6 @@ namespace Tennis.Library.Tests
             game.ChangeSides(1);
             Assert.IsTrue( (game.LeftSide() == game.Player_2()) && (game.RightSide() == game.Player_1()) ) ;            
         }
-        */
 
     }
 }
