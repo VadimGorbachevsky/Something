@@ -10,26 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Tennis
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Логика взаимодействия для ViewPanel.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ViewPanel : Window
     {
-        public MainWindow()
+        public ViewPanel()
         {
             InitializeComponent();
-            ViewPanel viewPanel = new ViewPanel();
-            viewPanel.Show();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
