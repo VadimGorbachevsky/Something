@@ -131,6 +131,7 @@ namespace Tennis.Library
                             if (result[0, current_set] < 5)
                             {
                                 result[0, current_set]++;
+                                ClearAdvantage();
                             }
                             else
                             {
@@ -139,6 +140,7 @@ namespace Tennis.Library
                                 Player_1().UpScore(2, 1);
                                 Player_2().DownScore(1, 100); //To down to Zero. Bad design(
                                 Player_1().DownScore(1, 100);
+                                ClearAdvantage();
                             }
                         }
                         if (Advantage() == Player_2().Name())
@@ -148,7 +150,7 @@ namespace Tennis.Library
                         string str = Advantage();
                         string str2 = "Nothing";
                         bool r = str.Equals(str2, StringComparison.OrdinalIgnoreCase);
-                        if (r)
+                        if ( (r) && (Player_2().Score(0) == 40))
                         {
                             SetAdvantage(1);
                         }
@@ -163,6 +165,7 @@ namespace Tennis.Library
                             if (result[1, current_set] < 5)
                             {
                                 result[1, current_set]++;
+                                ClearAdvantage();
                             }
                             else
                             {
@@ -171,6 +174,7 @@ namespace Tennis.Library
                                 Player_2().UpScore(2, 1);
                                 Player_2().DownScore(1, 100); //To down to Zero. Bad design(
                                 Player_1().DownScore(1, 100);
+                                ClearAdvantage();
                             }
                         }
                         if (Advantage() == Player_1().Name())
@@ -180,7 +184,7 @@ namespace Tennis.Library
                         string str = Advantage();
                         string str2 = "Nothing";
                         bool r = str.Equals(str2, StringComparison.OrdinalIgnoreCase);
-                        if (r)
+                        if ((r) && (Player_1().Score(0) == 40))
                         {
                             SetAdvantage(2);
                         }

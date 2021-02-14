@@ -37,11 +37,18 @@ namespace Tennis
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             game = new TennisGame("Name_1", "Name_2");
+            Player_1_Up.IsEnabled = true;
+            Player_2_Up.IsEnabled = true;
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             game.UpRound(game.Player_1());
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            game.UpRound(game.Player_2());
         }
     }
 }

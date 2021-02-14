@@ -522,7 +522,7 @@ namespace Tennis.Library.Tests
             game.UpRound(game.Player_2());
             game.UpRound(game.Player_1());
             game.UpRound(game.Player_1());
-            Assert.IsTrue((game.Player_1().Score(0) == 0) && (game.Player_2().Score(0) == 0) &&  (game.Player_1().Score(1) == 0) && (game.Player_1().Score(2) == 1) && (game.result[0, 0] == 1) && (game.result[1, 0] == 1) && (game.Advantage() == "Nothing"));
+            Assert.IsTrue((game.Player_1().Score(0) == 0) && (game.Player_2().Score(0) == 0) &&  (game.Player_1().Score(1) == 1) && (game.Player_2().Score(1) == 0) && (game.result[0, 0] == 1) && (game.result[1, 0] == 0) && (game.Advantage() == "Nothing"));
         }
         [Test]
         public void UpSet()
