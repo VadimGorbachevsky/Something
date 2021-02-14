@@ -1,4 +1,24 @@
-﻿using System;
+﻿/* Library to Tennis application:
+ * class Player - model of player, which iclude Name and 3-dimention-Score.
+ * constructor: Player(string name)
+ * methods: Name() - to get Name.
+ * *        Score(int dim-index) - to get Score by index.
+ *          UpScore(int dim-index, int value) - to up score by index. Only positive. No error, but no result too.
+ *          DownScore(int dim-index, int value) - to down score by index. Only positive. No error, but no result too.
+ * class TennisGame - model of game.
+ * poles: two Players, winner (name of Player), Advantage (by player number), result (2-dim-array: player_number, score),
+ *        current_set, left/right sides (class Player too).
+ * constructor: TennisGame(string player1_name, string player2_name)
+ * methods: 
+ *          Getters: 
+ *                  Player_1(), Player_2(), LeftSide(), RightSide(), Advantage(), Winner(), Ball().
+ *          Other:
+ *                  SetAdvantage(ind player_number), ClearAdvantage(), ChangeSides(), ChangeBall(),
+ *                  CheckWinner() - write player name to winner,
+ *                  UpRound(Player player) - all game logic, upscore.
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -69,7 +89,7 @@ namespace Tennis.Library
                 player_1 = new Player(name_1);
                 player_2 = new Player(name_2);
             }
-            result = new int[,] { { 0,0,0,0,0},{0,0,0,0,0 } };
+            result = new int[,] { { 0,0,0,0,0},{0,0,0,0,0} };
             leftSide = player_1;
             rightSide = player_2;
             advantage = "Nothing";
@@ -84,6 +104,7 @@ namespace Tennis.Library
         public Player RightSide() { return rightSide; }
         public string Advantage() { return advantage; }
         public string Winner() { return winner; }
+        public int Ball() { return ball; }
 
         public void ChangeSides()
         {
@@ -96,16 +117,13 @@ namespace Tennis.Library
             if (player_number == 1) { advantage = player_1.Name(); }
             if (player_number == 2) { advantage = player_2.Name(); }
         }
-        public int Ball() { return ball; }
+        
         public void ChangeBall()
         {
-            if (ball == 1) { ball = 2; }
+            if (ball == 1) { ball = 2; } //Player number
             else { ball = 1; }
         }
-        public void ClearAdvantage()
-        {
-            advantage = "Nothing";            
-        }
+        public void ClearAdvantage() { advantage = "Nothing"; }
         public void UpRound(Player player)
         {
             switch(player.Score(0))
@@ -122,6 +140,7 @@ namespace Tennis.Library
                 case 40:
                     if (player.Name() == Player_1().Name())
                     {
+                        //Clear GAME
                         if ( (Advantage() == Player_1().Name()) || (Player_2().Score(0) < 40))
                         {
                             Player_1().UpScore(1, 1);
@@ -129,12 +148,14 @@ namespace Tennis.Library
                             Player_2().DownScore(0, 100);
                             if (result[0, current_set] < 5)
                             {
+                                //Up RESULT and go NEXT GAME 
                                 result[0, current_set]++;
                                 ClearAdvantage();
                                 ChangeBall();
                             }
                             else
                             {
+                                //Up RESULT and go NEXT SET
                                 result[0, current_set]++;
                                 current_set++;
                                 Player_1().UpScore(2, 1);
@@ -145,6 +166,7 @@ namespace Tennis.Library
                                 ChangeSides();
                             }
                         }
+                        //NOT CLEAR GAME 40/40
                         string str = Advantage();
                         string str2 = "Nothing";
                         bool r = str.Equals(str2, StringComparison.OrdinalIgnoreCase);
@@ -152,12 +174,15 @@ namespace Tennis.Library
                         {
                             SetAdvantage(1);
                         }
+                        //NOT CLEAR GAME 40/AD - for another player
                         if (Advantage() == Player_2().Name())
                         {
                             ClearAdvantage();
                         }
                     }
-                    else
+                    else /*The same to another player. 
+                          * Yes, I can remove this, but it will increase the difficulty,
+                          * and in the current conditions it is not required, I think */
                     {
                         if ( (Advantage() == Player_2().Name()) || (Player_1().Score(0) < 40) )
                         {

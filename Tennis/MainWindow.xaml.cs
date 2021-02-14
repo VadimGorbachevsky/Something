@@ -26,8 +26,10 @@ namespace Tennis
         public MainWindow()
         {
             InitializeComponent();
+            //Create window to viewers
             ViewPanel viewPanel = new ViewPanel();
             viewPanel.Show();
+            //Get default coord-s to switch sides
             foreach (Window window in Application.Current.Windows)
             {
                 if (window.GetType() == typeof(ViewPanel))
@@ -42,14 +44,15 @@ namespace Tennis
 
         }
 
-        public void UpdateAll()
+        
+        public void UpdateAll() //...views
         {
-            Side_1.Content = game.LeftSide().Name();
-            Side_2.Content = game.RightSide().Name();
+            //Update ViewPanel elements
             foreach (Window window in Application.Current.Windows)
             {
                 if (window.GetType() == typeof(ViewPanel))
                 {
+                    //SWITCH SIDES
                     if( ((window as ViewPanel).Player1_Name_small.Margin == default_first_player_name_place)  && ( game.LeftSide().Name() == game.Player_2().Name() ) )
                     {
                         System.Windows.Thickness buffer = (window as ViewPanel).Player1_Name_small.Margin;
@@ -78,6 +81,7 @@ namespace Tennis
                         (window as ViewPanel).player2_score.Margin = (window as ViewPanel).player1_score.Margin;
                         (window as ViewPanel).player1_score.Margin = buffer;
                     }
+                    //THE END OF SWITCH SIDES. Next scores and other
                     (window as ViewPanel).Set10.Content = game.result[0, 0]; (window as ViewPanel).Set11.Content = game.result[1, 0];
                     (window as ViewPanel).Set20.Content = game.result[0, 1]; (window as ViewPanel).Set21.Content = game.result[1, 1];
                     (window as ViewPanel).Set30.Content = game.result[0, 2]; (window as ViewPanel).Set31.Content = game.result[1, 2];
@@ -114,6 +118,10 @@ namespace Tennis
                     }
                 }
             }
+
+            //Update main elements
+            Side_1.Content = game.LeftSide().Name();
+            Side_2.Content = game.RightSide().Name();
             Set10.Content = game.result[0, 0]; Set11.Content = game.result[1, 0];
             Set20.Content = game.result[0, 1]; Set21.Content = game.result[1, 1];
             Set30.Content = game.result[0, 2]; Set31.Content = game.result[1, 2];
@@ -153,6 +161,7 @@ namespace Tennis
 
 
         }
+        //Game Creation
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             game = new TennisGame(First_Player.Text, Second_Player.Text);
@@ -173,12 +182,14 @@ namespace Tennis
             UpdateAll();
         }
 
+        //First player UPSCORE
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             game.UpRound(game.Player_1());
             UpdateAll();
         }
 
+        //Second player UPSCORE
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
             game.UpRound(game.Player_2());
