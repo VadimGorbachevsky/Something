@@ -7,8 +7,30 @@
         mc:Ignorable="d"
         Title="ViewPanel" Height="450" Width="800">
     <Grid>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="238,30,0,0" VerticalAlignment="Top"/>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="386,43,0,0" VerticalAlignment="Top"/>
+        <Label Name="Player1_Name_small" Content="PLAYER" HorizontalAlignment="Left" Margin="273,56,0,0" VerticalAlignment="Top"/>
+        <Label Name="Player2_Name_small" Content="PLAYER" HorizontalAlignment="Left" Margin="459,56,0,0" VerticalAlignment="Top"/>
+        <Label Name="player1_score" Content="SC" HorizontalAlignment="Left" Margin="279,130,0,0" VerticalAlignment="Top"/>
+        <Label Name="player2_score" Content="SC" HorizontalAlignment="Left" Margin="472,130,0,0" VerticalAlignment="Top"/>
+        <RadioButton Name="Player2_ball" Content="" HorizontalAlignment="Left" Margin="574,136,0,0" VerticalAlignment="Top"/>
+        <RadioButton Name="Player1_ball" Content="" HorizontalAlignment="Left" Margin="189,136,0,0" VerticalAlignment="Top"/>
+        <Label Content="Set_1" HorizontalAlignment="Left" Margin="282,229,0,0" VerticalAlignment="Top"/>
+        <Label Content="Set_2" HorizontalAlignment="Left" Margin="349,229,0,0" VerticalAlignment="Top"/>
+        <Label Content="Set_3" HorizontalAlignment="Left" Margin="409,229,0,0" VerticalAlignment="Top"/>
+        <Label Content="Set_4" HorizontalAlignment="Left" Margin="475,229,0,0" VerticalAlignment="Top"/>
+        <Label Content="Set_5" HorizontalAlignment="Left" Margin="541,229,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="Player1_Name2" Content="Player_1" HorizontalAlignment="Left" Margin="188,266,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="Player2_Name1" Content="Player_2" HorizontalAlignment="Left" Margin="188,309,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="Set50" Content="0" HorizontalAlignment="Left" Margin="549,268,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="Set30" Content="0" HorizontalAlignment="Left" Margin="414,268,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="Set20" Content="0" HorizontalAlignment="Left" Margin="357,268,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="Set40" Content="0" HorizontalAlignment="Left" Margin="480,268,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="Set10"  x:FieldModifier="public" Content="0" HorizontalAlignment="Left" Margin="290,268,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="Set21" Content="0" HorizontalAlignment="Left" Margin="357,310,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="Set51" Content="0" HorizontalAlignment="Left" Margin="549,310,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="Set31" Content="0" HorizontalAlignment="Left" Margin="414,310,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="Set41" Content="0" HorizontalAlignment="Left" Margin="480,310,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="Set11" Content="0" HorizontalAlignment="Left" Margin="290,310,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="winner_place" Content="NO WINNER YET" HorizontalAlignment="Center" Margin="0,374,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

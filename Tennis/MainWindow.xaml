@@ -24,7 +24,6 @@
         <RadioButton Name="Player1_ball" Content="" HorizontalAlignment="Left" Margin="453,180,0,0" VerticalAlignment="Top"/>
         <RadioButton Name="Player2_ball" Content="" HorizontalAlignment="Left" Margin="453,223,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.212,-0.332"/>
         <Label Name="winner_place" Content="NO WINNER YET" HorizontalAlignment="Left" Margin="363,350,0,0" VerticalAlignment="Top"/>
-        <Button Content="How To?" HorizontalAlignment="Left" Margin="741,404,0,0" VerticalAlignment="Top"/>
         <Label Content="Label" HorizontalAlignment="Left" Margin="889,150,0,0" VerticalAlignment="Top"/>
         <Label Name="Side_1" Content="Side" HorizontalAlignment="Left" Margin="598,212,0,0" VerticalAlignment="Top"/>
         <Label Name="Side_2" Content="Side" HorizontalAlignment="Left" Margin="672,212,0,0" VerticalAlignment="Top"/>
