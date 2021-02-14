@@ -18,7 +18,7 @@
         <Label Content="Set_4" HorizontalAlignment="Left" Margin="301,137,0,0" VerticalAlignment="Top"/>
         <Label Content="Set_5" HorizontalAlignment="Left" Margin="367,137,0,0" VerticalAlignment="Top"/>
         <Button Content="Up Score" HorizontalAlignment="Left" Margin="701,61,0,0" VerticalAlignment="Top" Width="74" Height="24"/>
-        <Button Content="Up Score" HorizontalAlignment="Left" Margin="411,61,0,0" VerticalAlignment="Top" Height="24" Width="74"/>
+        <Button Content="Up Score" HorizontalAlignment="Left" Margin="411,61,0,0" VerticalAlignment="Top" Height="24" Width="74" Click="Button_Click_2"/>
         <Label Content="Player_1" HorizontalAlignment="Left" Margin="14,174,0,0" VerticalAlignment="Top"/>
         <Label Content="Player_2" HorizontalAlignment="Left" Margin="14,217,0,0" VerticalAlignment="Top"/>
         <RadioButton Content="" HorizontalAlignment="Left" Margin="453,180,0,0" VerticalAlignment="Top"/>

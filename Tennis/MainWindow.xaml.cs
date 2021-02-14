@@ -21,6 +21,7 @@ namespace Tennis
     /// </summary>
     public partial class MainWindow : Window
     {
+        TennisGame game;
         public MainWindow()
         {
             InitializeComponent();
@@ -35,7 +36,12 @@ namespace Tennis
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            TennisGame game = new TennisGame("Name_1", "Name_2");
+            game = new TennisGame("Name_1", "Name_2");
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            game.UpRound(game.Player_1());
         }
     }
 }

@@ -468,7 +468,7 @@ namespace Tennis.Library.Tests
         {
             TennisGame game = new TennisGame("Name_1", "Name_2");
             game.UpRound(game.Player_1());
-            Assert.IsTrue(game.Player_1().Score(1) == 15);
+            Assert.IsTrue(game.Player_1().Score(0) == 15);
         }
         [Test]
         public void UpSecondtRound()
@@ -476,7 +476,7 @@ namespace Tennis.Library.Tests
             TennisGame game = new TennisGame("Name_1", "Name_2");
             game.UpRound(game.Player_1());
             game.UpRound(game.Player_1());
-            Assert.IsTrue(game.Player_1().Score(1) == 30);
+            Assert.IsTrue(game.Player_1().Score(0) == 30);
         }
         [Test]
         public void UpThirdRound()
@@ -485,7 +485,7 @@ namespace Tennis.Library.Tests
             game.UpRound(game.Player_1());
             game.UpRound(game.Player_1());
             game.UpRound(game.Player_1());
-            Assert.IsTrue(game.Player_1().Score(1) == 40);
+            Assert.IsTrue(game.Player_1().Score(0) == 40);
         }
         [Test]
         public void UpFourthRoundClear()
@@ -495,7 +495,7 @@ namespace Tennis.Library.Tests
             game.UpRound(game.Player_1());
             game.UpRound(game.Player_1());
             game.UpRound(game.Player_1());
-            Assert.IsTrue( (game.Player_1().Score(1) == 0) && (game.Player_1().Score(2) == 1) && (game.result[0,0] == 1) && (game.result[1, 0] == 0));
+            Assert.IsTrue( (game.Player_1().Score(0) == 0) && (game.Player_2().Score(0) == 0) && (game.Player_1().Score(0) == 0) && (game.Player_1().Score(1) == 1) && (game.result[0,0] == 1) && (game.result[1, 0] == 0));
         }
         [Test]
         public void UpFourthRoundWithoutAD()
@@ -508,7 +508,7 @@ namespace Tennis.Library.Tests
             game.UpRound(game.Player_2());
             game.UpRound(game.Player_2());
             game.UpRound(game.Player_1());
-            Assert.IsTrue( (game.Player_1().Score(1) == 40) && (game.Player_2().Score(1) == 40) && (game.result[0, 0] == 0) && (game.result[1, 0] == 0) && (game.Advantage() == "Name_1") );
+            Assert.IsTrue( (game.Player_1().Score(0) == 40) && (game.Player_2().Score(0) == 40) && (game.result[0, 0] == 0) && (game.result[1, 0] == 0) && (game.Advantage() == "Name_1") );
         }
         [Test]
         public void UpFiveRoundWithAD()
@@ -522,7 +522,7 @@ namespace Tennis.Library.Tests
             game.UpRound(game.Player_2());
             game.UpRound(game.Player_1());
             game.UpRound(game.Player_1());
-            Assert.IsTrue((game.Player_1().Score(1) == 0) && (game.Player_1().Score(2) == 1) && (game.result[0, 0] == 1) && (game.result[1, 0] == 1) && (game.Advantage() == "Nothing"));
+            Assert.IsTrue((game.Player_1().Score(0) == 0) && (game.Player_2().Score(0) == 0) &&  (game.Player_1().Score(1) == 0) && (game.Player_1().Score(2) == 1) && (game.result[0, 0] == 1) && (game.result[1, 0] == 1) && (game.Advantage() == "Nothing"));
         }
         [Test]
         public void UpSet()
