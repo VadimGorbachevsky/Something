@@ -49,6 +49,9 @@ namespace Tennis.Library
     {
         private string advantage;
         private int ball;
+        public int[,] result = new int[1,5];
+        public int current_set;
+        private string winner;
         Player player_1;
         Player player_2;
         Player leftSide;
@@ -66,9 +69,12 @@ namespace Tennis.Library
                 player_1 = new Player(name_1);
                 player_2 = new Player(name_2);
             }
-            advantage = "Nothng";
-            leftSide  = player_1;
+            result = new int[,] { { 0,0,0,0,0},{0,0,0,0,0 } };
+            leftSide = player_1;
             rightSide = player_2;
+            advantage = "Nothng";
+            winner = "Nothing";
+            current_set = 0;
             ball = 1;
         }
 
@@ -100,6 +106,84 @@ namespace Tennis.Library
         public void ClearAdvantage()
         {
             advantage = "Nothing";            
+        }
+        public void UpRound(Player player)
+        {
+            switch(player.Score(0))
+            {
+                case 0:
+                    player.UpScore(0, 15);
+                    break;
+                case 15:
+                    player.UpScore(0, 15);
+                    break;
+                case 30:
+                    player.UpScore(0, 10);
+                    break;
+                case 40:
+                    if (player.Name() == Player_1().Name())
+                    {
+                        if (Advantage() == Player_1().Name())
+                        {
+                            Player_1().UpScore(1, 1);
+                            Player_1().DownScore(0, 100); //To down to Zero. Bad design(
+                            Player_2().DownScore(0, 100);
+                            if (result[0, current_set] < 5)
+                            {
+                                result[0, current_set]++;
+                            }
+                            else
+                            {
+                                result[0, current_set]++;
+                                current_set++;
+                                Player_1().UpScore(2, 1);
+                                Player_2().DownScore(1, 100); //To down to Zero. Bad design(
+                                Player_1().DownScore(1, 100);
+                            }
+                        }
+                        if (Advantage() == Player_2().Name())
+                        {
+                            ClearAdvantage();
+                        }
+                        if (Advantage() == "Nothing")
+                        {
+                            SetAdvantage(1);
+                        }
+                    }
+                    else
+                    {
+                        if (Advantage() == Player_2().Name())
+                        {
+                            Player_2().UpScore(1, 1);
+                            Player_2().DownScore(0, 100); //To down to Zero. Bad design(
+                            Player_1().DownScore(0, 100);
+                            if (result[1, current_set] < 5)
+                            {
+                                result[1, current_set]++;
+                            }
+                            else
+                            {
+                                result[1, current_set]++;
+                                current_set++;
+                                Player_2().UpScore(2, 1);
+                                Player_2().DownScore(1, 100); //To down to Zero. Bad design(
+                                Player_1().DownScore(1, 100);
+                            }
+                        }
+                        if (Advantage() == Player_1().Name())
+                        {
+                            ClearAdvantage();
+                        }
+                        if (Advantage() == "Nothing")
+                        {
+                            SetAdvantage(1);
+                        }
+                    }
+                    break;
+                default:
+                    Console.WriteLine("Default case");
+                    break;
+            }
         }
     }
 }

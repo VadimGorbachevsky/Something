@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Tennis.Library;
 
 namespace Tennis
 {
@@ -30,6 +31,11 @@ namespace Tennis
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            TennisGame game = new TennisGame("Name_1", "Name_2");
         }
     }
 }
