@@ -1,0 +1,30 @@
+Application to tennis game
+
+HOW TO:
+1. Write player names in left up corner.
+2. Click Start Game.
+3. Click Up Score to one or another player to continue.
+
+Include MainApplication, Library TennisGame (and tests).
+
+About lib you can see comments in the code, or read this:
+
+/* Library to Tennis application:
+ * class Player - model of player, which iclude Name and 3-dimention-Score.
+ * constructor: Player(string name)
+ * methods: Name() - to get Name.
+ * *        Score(int dim-index) - to get Score by index.
+ *          UpScore(int dim-index, int value) - to up score by index. Only positive. No error, but no result too.
+ *          DownScore(int dim-index, int value) - to down score by index. Only positive. No error, but no result too.
+ * class TennisGame - model of game.
+ * poles: two Players, winner (name of Player), Advantage (by player number), result (2-dim-array: player_number, score),
+ *        current_set, left/right sides (class Player too).
+ * constructor: TennisGame(string player1_name, string player2_name)
+ * methods: 
+ *          Getters: 
+ *                  Player_1(), Player_2(), LeftSide(), RightSide(), Advantage(), Winner(), Ball().
+ *          Other:
+ *                  SetAdvantage(ind player_number), ClearAdvantage(), ChangeSides(), ChangeBall(),
+ *                  CheckWinner() - write player name to winner,
+ *                  UpRound(Player player) - all game logic, upscore.
+ */
