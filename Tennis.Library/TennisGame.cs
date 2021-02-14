@@ -83,6 +83,7 @@ namespace Tennis.Library
         public Player LeftSide()  { return leftSide; }
         public Player RightSide() { return rightSide; }
         public string Advantage() { return advantage; }
+        public string Winner() { return winner; }
 
         public void ChangeSides()
         {
@@ -96,12 +97,10 @@ namespace Tennis.Library
             if (player_number == 2) { advantage = player_2.Name(); }
         }
         public int Ball() { return ball; }
-        public void ChangeBall(int player_number)
+        public void ChangeBall()
         {
-            if ( (player_number == 1) || (player_number == 2 ) )
-            {
-                ball = player_number; 
-            }
+            if (ball == 1) { ball = 2; }
+            else { ball = 1; }
         }
         public void ClearAdvantage()
         {
@@ -132,6 +131,7 @@ namespace Tennis.Library
                             {
                                 result[0, current_set]++;
                                 ClearAdvantage();
+                                ChangeBall();
                             }
                             else
                             {
@@ -141,11 +141,9 @@ namespace Tennis.Library
                                 Player_2().DownScore(1, 100); //To down to Zero. Bad design(
                                 Player_1().DownScore(1, 100);
                                 ClearAdvantage();
+                                ChangeBall();
+                                ChangeSides();
                             }
-                        }
-                        if (Advantage() == Player_2().Name())
-                        {
-                            ClearAdvantage();
                         }
                         string str = Advantage();
                         string str2 = "Nothing";
@@ -153,6 +151,10 @@ namespace Tennis.Library
                         if ( (r) && (Player_2().Score(0) == 40))
                         {
                             SetAdvantage(1);
+                        }
+                        if (Advantage() == Player_2().Name())
+                        {
+                            ClearAdvantage();
                         }
                     }
                     else
@@ -166,6 +168,7 @@ namespace Tennis.Library
                             {
                                 result[1, current_set]++;
                                 ClearAdvantage();
+                                ChangeBall();
                             }
                             else
                             {
@@ -175,11 +178,9 @@ namespace Tennis.Library
                                 Player_2().DownScore(1, 100); //To down to Zero. Bad design(
                                 Player_1().DownScore(1, 100);
                                 ClearAdvantage();
+                                ChangeBall();
+                                ChangeSides();
                             }
-                        }
-                        if (Advantage() == Player_1().Name())
-                        {
-                            ClearAdvantage();
                         }
                         string str = Advantage();
                         string str2 = "Nothing";
@@ -188,12 +189,22 @@ namespace Tennis.Library
                         {
                             SetAdvantage(2);
                         }
+                        if (Advantage() == Player_1().Name())
+                        {
+                            ClearAdvantage();
+                        }
                     }
                     break;
                 default:
-                    Console.WriteLine("Default case");
                     break;
             }
+            CheckWinner();
+        }
+
+        public void CheckWinner()
+        {
+            if(Player_1().Score(2) == 3) { winner = Player_1().Name(); return; }
+            if(Player_2().Score(2) == 3) { winner = Player_2().Name(); return; }
         }
     }
 }

@@ -8,8 +8,8 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Button Content="Start New Game" Margin="219,13,461,0" VerticalAlignment="Top" Click="Button_Click_1" ClickMode="Press"/>
-        <TextBox HorizontalAlignment="Left" Margin="72,15,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Margin="72,56,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="First_Player" HorizontalAlignment="Left" Margin="72,15,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="Second_Player" HorizontalAlignment="Left" Margin="72,56,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Label Content="Player_1" HorizontalAlignment="Left" Margin="10,11,0,0" VerticalAlignment="Top"/>
         <Label Content="Player_2" HorizontalAlignment="Left" Margin="10,52,0,0" VerticalAlignment="Top"/>
         <Label Content="Set_1" HorizontalAlignment="Left" Margin="108,137,0,0" VerticalAlignment="Top"/>
@@ -19,27 +19,31 @@
         <Label Content="Set_5" HorizontalAlignment="Left" Margin="367,137,0,0" VerticalAlignment="Top"/>
         <Button Name="Player_2_Up" Content="Up Score" HorizontalAlignment="Left" Margin="701,61,0,0" VerticalAlignment="Top" Width="74" Height="24" ClickMode="Press" Click="Button_Click_3" IsEnabled="False"/>
         <Button Name="Player_1_Up" Content="Up Score" HorizontalAlignment="Left" Margin="411,61,0,0" VerticalAlignment="Top" Height="24" Width="74" Click="Button_Click_2" ClickMode="Press" IsEnabled="False"/>
-        <Label Content="Player_1" HorizontalAlignment="Left" Margin="14,174,0,0" VerticalAlignment="Top"/>
-        <Label Content="Player_2" HorizontalAlignment="Left" Margin="14,217,0,0" VerticalAlignment="Top"/>
-        <RadioButton Content="" HorizontalAlignment="Left" Margin="453,180,0,0" VerticalAlignment="Top"/>
-        <RadioButton Content="" HorizontalAlignment="Left" Margin="453,223,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.212,-0.332"/>
-        <Label Content="NO WINNER YET" HorizontalAlignment="Left" Margin="363,350,0,0" VerticalAlignment="Top"/>
+        <Label Name="Player1_Name2" Content="Player_1" HorizontalAlignment="Left" Margin="14,174,0,0" VerticalAlignment="Top"/>
+        <Label Name="Player2_Name1" Content="Player_2" HorizontalAlignment="Left" Margin="14,217,0,0" VerticalAlignment="Top"/>
+        <RadioButton Name="Player1_ball" Content="" HorizontalAlignment="Left" Margin="453,180,0,0" VerticalAlignment="Top"/>
+        <RadioButton Name="Player2_ball" Content="" HorizontalAlignment="Left" Margin="453,223,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.212,-0.332"/>
+        <Label Name="winner_place" Content="NO WINNER YET" HorizontalAlignment="Left" Margin="363,350,0,0" VerticalAlignment="Top"/>
         <Button Content="How To?" HorizontalAlignment="Left" Margin="741,404,0,0" VerticalAlignment="Top"/>
         <Label Content="Label" HorizontalAlignment="Left" Margin="889,150,0,0" VerticalAlignment="Top"/>
-        <Label Content="Side" HorizontalAlignment="Left" Margin="506,168,0,0" VerticalAlignment="Top"/>
-        <Label Content="Side" HorizontalAlignment="Left" Margin="506,213,0,0" VerticalAlignment="Top"/>
+        <Label Name="Side_1" Content="Side" HorizontalAlignment="Left" Margin="598,212,0,0" VerticalAlignment="Top"/>
+        <Label Name="Side_2" Content="Side" HorizontalAlignment="Left" Margin="672,212,0,0" VerticalAlignment="Top"/>
         <Label Content="Ball" HorizontalAlignment="Left" Margin="448,137,0,0" VerticalAlignment="Top"/>
-        <Label Content="Player_2" HorizontalAlignment="Left" Margin="619,19,0,0" VerticalAlignment="Top"/>
-        <Label Content="Player_1" HorizontalAlignment="Left" Margin="526,19,0,0" VerticalAlignment="Top"/>
-        <Label Content="0" HorizontalAlignment="Left" Margin="375,176,0,0" VerticalAlignment="Top"/>
-        <Label Content="0" HorizontalAlignment="Left" Margin="240,176,0,0" VerticalAlignment="Top"/>
-        <Label Content="0" HorizontalAlignment="Left" Margin="183,176,0,0" VerticalAlignment="Top"/>
-        <Label Content="0" HorizontalAlignment="Left" Margin="306,176,0,0" VerticalAlignment="Top"/>
-        <Label Content="0" HorizontalAlignment="Left" Margin="116,176,0,0" VerticalAlignment="Top"/>
-        <Label Content="0" HorizontalAlignment="Left" Margin="183,218,0,0" VerticalAlignment="Top"/>
-        <Label Content="0" HorizontalAlignment="Left" Margin="375,218,0,0" VerticalAlignment="Top"/>
-        <Label Content="0" HorizontalAlignment="Left" Margin="240,218,0,0" VerticalAlignment="Top"/>
-        <Label Content="0" HorizontalAlignment="Left" Margin="306,218,0,0" VerticalAlignment="Top"/>
-        <Label Content="0" HorizontalAlignment="Left" Margin="116,218,0,0" VerticalAlignment="Top"/>
+        <Label Name="Player2_Name2" Content="Player_2" HorizontalAlignment="Left" Margin="619,19,0,0" VerticalAlignment="Top"/>
+        <Label Name="Player1_Name1" Content="Player_1" HorizontalAlignment="Left" Margin="526,19,0,0" VerticalAlignment="Top"/>
+        <Label Name="Set50" Content="0" HorizontalAlignment="Left" Margin="375,176,0,0" VerticalAlignment="Top"/>
+        <Label Name="Set30" Content="0" HorizontalAlignment="Left" Margin="240,176,0,0" VerticalAlignment="Top"/>
+        <Label Name="Set20" Content="0" HorizontalAlignment="Left" Margin="183,176,0,0" VerticalAlignment="Top"/>
+        <Label Name="Set40" Content="0" HorizontalAlignment="Left" Margin="306,176,0,0" VerticalAlignment="Top"/>
+        <Label Name="Set10" Content="0" HorizontalAlignment="Left" Margin="116,176,0,0" VerticalAlignment="Top"/>
+        <Label Name="Set21" Content="0" HorizontalAlignment="Left" Margin="183,218,0,0" VerticalAlignment="Top"/>
+        <Label Name="Set51" Content="0" HorizontalAlignment="Left" Margin="375,218,0,0" VerticalAlignment="Top"/>
+        <Label Name="Set31" Content="0" HorizontalAlignment="Left" Margin="240,218,0,0" VerticalAlignment="Top"/>
+        <Label Name="Set41" Content="0" HorizontalAlignment="Left" Margin="306,218,0,0" VerticalAlignment="Top"/>
+        <Label Name="Set11" Content="0" HorizontalAlignment="Left" Margin="116,218,0,0" VerticalAlignment="Top"/>
+        <Label Name="player1_score" Content="SC" HorizontalAlignment="Left" Margin="538,60,0,0" VerticalAlignment="Top"/>
+        <Label Name="player2_score"  Content="SC" HorizontalAlignment="Left" Margin="631,60,0,0" VerticalAlignment="Top"/>
+        <Label Content="Left" HorizontalAlignment="Left" Margin="598,171,0,0" VerticalAlignment="Top"/>
+        <Label Content="Right" HorizontalAlignment="Left" Margin="669,171,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

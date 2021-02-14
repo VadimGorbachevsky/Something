@@ -452,7 +452,7 @@ namespace Tennis.Library.Tests
         public void ChangeBall()
         {
             TennisGame game = new TennisGame("Name_1", "Name_2");
-            game.ChangeBall(2);
+            game.ChangeBall();
             Assert.IsTrue(game.Ball() == 2);
         }
         [Test]
