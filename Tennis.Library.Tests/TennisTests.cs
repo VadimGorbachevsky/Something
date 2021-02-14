@@ -453,6 +453,55 @@ namespace Tennis.Library.Tests
             game.ClearAdvantage();
             Assert.IsTrue(game.Advantage() == "Nothing");
         }
+        [Test]
+        public void UpFirstRound()
+        {
+            
+        }
+        [Test]
+        public void UpSecondtRound()
+        {
+
+        }
+        [Test]
+        public void UpThirdRound()
+        {
+
+        }
+        public void UpFourthRound()
+        {
+
+        }
+        [Test]
+        public void UpFivetRoundWithoutAD()
+        {
+
+        }
+        [Test]
+        public void UpFivetRoundWithoutAD()
+        {
+
+        }
+        [Test]
+        public void UpFiveRoundWithAD()
+        {
+
+        }
+        [Test]
+        public void UpGame()
+        {
+
+        }
+        [Test]
+        public void UpSet()
+        {
+            
+        }
+        public void SetWin()
+        {
+
+        }
+
 
     }
 }
