@@ -72,7 +72,7 @@ namespace Tennis.Library
             result = new int[,] { { 0,0,0,0,0},{0,0,0,0,0 } };
             leftSide = player_1;
             rightSide = player_2;
-            advantage = "Nothng";
+            advantage = "Nothing";
             winner = "Nothing";
             current_set = 0;
             ball = 1;
@@ -123,7 +123,7 @@ namespace Tennis.Library
                 case 40:
                     if (player.Name() == Player_1().Name())
                     {
-                        if (Advantage() == Player_1().Name())
+                        if ( (Advantage() == Player_1().Name()) || (Player_2().Score(0) < 40))
                         {
                             Player_1().UpScore(1, 1);
                             Player_1().DownScore(0, 100); //To down to Zero. Bad design(
@@ -145,14 +145,17 @@ namespace Tennis.Library
                         {
                             ClearAdvantage();
                         }
-                        if (Advantage() == "Nothing")
+                        string str = Advantage();
+                        string str2 = "Nothing";
+                        bool r = str.Equals(str2, StringComparison.OrdinalIgnoreCase);
+                        if (r)
                         {
                             SetAdvantage(1);
                         }
                     }
                     else
                     {
-                        if (Advantage() == Player_2().Name())
+                        if ( (Advantage() == Player_2().Name()) || (Player_1().Score(0) < 40) )
                         {
                             Player_2().UpScore(1, 1);
                             Player_2().DownScore(0, 100); //To down to Zero. Bad design(
@@ -174,9 +177,12 @@ namespace Tennis.Library
                         {
                             ClearAdvantage();
                         }
-                        if (Advantage() == "Nothing")
+                        string str = Advantage();
+                        string str2 = "Nothing";
+                        bool r = str.Equals(str2, StringComparison.OrdinalIgnoreCase);
+                        if (r)
                         {
-                            SetAdvantage(1);
+                            SetAdvantage(2);
                         }
                     }
                     break;

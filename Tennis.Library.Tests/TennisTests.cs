@@ -418,7 +418,7 @@ namespace Tennis.Library.Tests
         public void StartAdvantage()
         {
             TennisGame game = new TennisGame("Name_1", "Name_2");
-            Assert.IsTrue(game.Advantage() == "Nothng");
+            Assert.IsTrue(game.Advantage() == "Nothing");
             //We use player name or nothing to avoid creation third player
         }
         [Test]
@@ -495,7 +495,7 @@ namespace Tennis.Library.Tests
             game.UpRound(game.Player_1());
             game.UpRound(game.Player_1());
             game.UpRound(game.Player_1());
-            Assert.IsTrue( (game.Player_1().Score(0) == 0) && (game.Player_2().Score(0) == 0) && (game.Player_1().Score(0) == 0) && (game.Player_1().Score(1) == 1) && (game.result[0,0] == 1) && (game.result[1, 0] == 0));
+            Assert.IsTrue( (game.Player_1().Score(0) == 0) && (game.Player_2().Score(0) == 0) && (game.Player_1().Score(1) == 1) && (game.Player_2().Score(1) == 0) && (game.result[0, 0] == 1) && (game.result[1, 0] == 0));
         }
         [Test]
         public void UpFourthRoundWithoutAD()
